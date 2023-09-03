@@ -1,4 +1,5 @@
-﻿using LarQ.Data;
+﻿using LarQ.Core.Entities;
+using LarQ.Core.Seeds;
 using LarQ.DataAccess.Common;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -25,5 +26,10 @@ public class ApplicationDbContext : IdentityDbContext
         modelBuilder.AddSequentialGuidForIdConvention();
 
         modelBuilder.AddPluraizingTableNameConvention();
+
+        modelBuilder.AddCategorySeed();
+        modelBuilder.AddActorsSeeder();
     }
+
+    // public DbSet<Actor> Actors { get; set; }
 }

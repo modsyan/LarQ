@@ -2,7 +2,7 @@ using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Pluralize.NET;
 
-namespace LarQ.Data;
+namespace LarQ.DataAccess.Data;
 
 public static class ModelBuilderExtensions
 {
