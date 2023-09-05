@@ -4,8 +4,29 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+
     </PropertyGroup>
 
+
+    <ItemGroup>
+      <Reference Include="Microsoft.EntityFrameworkCore">
+        <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore\8.0.0-preview.7.23375.4\lib\net8.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.EntityFrameworkCore.Abstractions">
+        <HintPath>..\..\..\..\..\.nuget\packages\microsoft.entityframeworkcore.abstractions\8.0.0-preview.7.23375.4\lib\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+      </Reference>
+      <Reference Include="Microsoft.Extensions.Identity.Stores">
+        <HintPath>..\..\..\..\..\.nuget\packages\microsoft.aspnetcore.app.ref\8.0.0-preview.7.23375.9\ref\net8.0\Microsoft.Extensions.Identity.Stores.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+
+
+    <ItemGroup>
+      <PackageReference Include="ChustaSoft.StaticData" Version="2.2.0" />
+      <PackageReference Include="ChustaSoft.StaticData.AspNet" Version="2.2.0" />
+      <PackageReference Include="Nager.Country" Version="4.0.0" />
+    </ItemGroup>
 
 
 </Project>

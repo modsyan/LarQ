@@ -1,4 +1,4 @@
-using LarQ.Data;
+using LarQ.Core.Entities;
 using LarQ.DataAccess.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,14 +14,23 @@ public static class ServicesBuilder
                                throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
         services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(connectionString));
+            options.UseSqlServer(connectionString,
+                opt => opt.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
 
         services.AddDatabaseDeveloperPageExceptionFilter();
 
-        services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>();
+        // services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        //     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+        services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddEntityFrameworkStores<ApplicationDbContext>()
+            .AddDefaultUI().AddDefaultTokenProviders();
+
+        services.AddAutoMapper(typeof(Program).Assembly);
 
         services.AddControllersWithViews();
+
+        services.DependencyInjectionsInitializer();
 
         return services;
     }

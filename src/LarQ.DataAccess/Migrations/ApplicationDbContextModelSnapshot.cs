@@ -22,612 +22,19 @@ namespace LarQ.DataAccess.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ActorMovie", b =>
-                {
-                    b.Property<Guid>("ActorsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("MoviesId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ActorsId", "MoviesId");
-
-                    b.HasIndex("MoviesId");
-
-                    b.ToTable("ActorMovies");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Actor", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.ApplicationRole", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<DateTime>("BornDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nationality")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("PictureId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PictureId");
-
-                    b.ToTable("Actors");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("478fda24-410b-4b8e-9816-3a59d504884b"),
-                            BornDate = new DateTime(1932, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Omar Sharif",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("8ed78aa7-8f60-4bf2-aae5-102e623e1af8"),
-                            BornDate = new DateTime(1965, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Shah Rukh Khan",
-                            Nationality = "Indian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("73116e1e-fbc4-41f1-ab5a-33a78c85721a"),
-                            BornDate = new DateTime(1949, 6, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Meryl Streep",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("44d66726-8025-4e5f-b0bd-b9c52f5e87a7"),
-                            BornDate = new DateTime(1940, 5, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Adel Emam",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("91655fb3-4d03-473f-88dc-97573e757fc7"),
-                            BornDate = new DateTime(1956, 7, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Tom Hanks",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("0863678b-57f2-4e8c-a59a-af9c4d7e6bef"),
-                            BornDate = new DateTime(1965, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Aamir Khan",
-                            Nationality = "Indian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("c7bea4be-f81a-429e-ae7b-dd90a5cf6c36"),
-                            BornDate = new DateTime(1974, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Leonardo DiCaprio",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("86c342fb-036b-4405-8069-9f6d643aa44a"),
-                            BornDate = new DateTime(1965, 12, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Salman Khan",
-                            Nationality = "Indian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("7f4dc9d0-09ba-4bf7-94bf-170b43244b3c"),
-                            BornDate = new DateTime(1931, 5, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Faten Hamama",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("b6a1ed4d-2acb-428b-9196-bedbf718570a"),
-                            BornDate = new DateTime(1974, 4, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Penélope Cruz",
-                            Nationality = "Spanish",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("24332a34-a1a8-4729-843e-f2a5df5e7eab"),
-                            BornDate = new DateTime(1949, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Ahmed Zaki",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("8ec3a827-ff52-4518-87cf-7f9d21dff3a4"),
-                            BornDate = new DateTime(1984, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Mahira Khan",
-                            Nationality = "Pakistani",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("8ed2c14a-6656-4702-a51f-1a5db1f5465b"),
-                            BornDate = new DateTime(1973, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Amr Waked",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("9f340754-7f9e-45d0-a0a7-c25ef628fbd5"),
-                            BornDate = new DateTime(1976, 3, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Haifa Wehbe",
-                            Nationality = "Lebanese",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("213d3e5e-b3c1-43ed-856d-8d424320472b"),
-                            BornDate = new DateTime(1963, 6, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Johnny Depp",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("f2d44b55-3292-4742-ab80-cdbb4127a584"),
-                            BornDate = new DateTime(1942, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Amitabh Bachchan",
-                            Nationality = "Indian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("f9fcb594-0aa8-43a0-8058-badfe8d81395"),
-                            BornDate = new DateTime(1967, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Julia Roberts",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("4eeb4185-f6af-4663-bdd2-6f841c72846e"),
-                            BornDate = new DateTime(1966, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Khaled Abol Naga",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("06dfb56b-b8a2-4956-b281-79629b9a27b1"),
-                            BornDate = new DateTime(1943, 8, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Robert De Niro",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("df48b136-987b-40fc-a9ba-71873ee801fc"),
-                            BornDate = new DateTime(1930, 10, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Nawal El Saadawi",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("40bc7fc5-eff0-45e3-a78f-d21e66502b62"),
-                            BornDate = new DateTime(1969, 5, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Cate Blanchett",
-                            Nationality = "Australian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("0d5531e5-086a-46cd-ac90-c90f8d36e318"),
-                            BornDate = new DateTime(1937, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Morgan Freeman",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("bed43335-d370-4d4b-9e73-87ea6b11ea47"),
-                            BornDate = new DateTime(1964, 9, 30, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Monica Bellucci",
-                            Nationality = "Italian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("778be799-ad7f-4fe7-8407-caabbc5f0cd0"),
-                            BornDate = new DateTime(1964, 9, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Keanu Reeves",
-                            Nationality = "Canadian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("9555e95f-2364-4bae-b9f4-68b071b480fc"),
-                            BornDate = new DateTime(1954, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Denzel Washington",
-                            Nationality = "American",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        },
-                        new
-                        {
-                            Id = new Guid("bd9bce44-c59d-47b5-bd58-dfbf8f57c041"),
-                            BornDate = new DateTime(1974, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Nelly Karim",
-                            Nationality = "Egyptian",
-                            PictureId = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f")
-                        });
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("IconId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IconId");
-
-                    b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("d8e6f56b-a22b-41d3-bfc3-728cb5fd6663"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5863),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Action"
-                        },
-                        new
-                        {
-                            Id = new Guid("59df78ae-eb12-484d-b2e4-67c6e5fdb4e1"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5888),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Adventure"
-                        },
-                        new
-                        {
-                            Id = new Guid("5b8f6067-aeaf-49d3-abba-bf30d9ec0e31"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5895),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Animation"
-                        },
-                        new
-                        {
-                            Id = new Guid("021dd101-8b97-4087-8279-eecf1dfd5315"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5901),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Comedy"
-                        },
-                        new
-                        {
-                            Id = new Guid("24842d8b-a7c0-408b-a4ff-8d3fce394a53"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5940),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Crime"
-                        },
-                        new
-                        {
-                            Id = new Guid("509fad61-329f-4ba6-8b52-cc013858c232"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5952),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Documentary"
-                        },
-                        new
-                        {
-                            Id = new Guid("2998fe97-5533-40a5-a441-297c8cddfe6d"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5958),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Drama"
-                        },
-                        new
-                        {
-                            Id = new Guid("9dceb253-137e-4a55-8d45-d71d97ca63f5"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5964),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Family"
-                        },
-                        new
-                        {
-                            Id = new Guid("fa3b6481-56e0-49f3-ad7c-363a7857af5f"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5970),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Fantasy"
-                        },
-                        new
-                        {
-                            Id = new Guid("32c673de-4c34-46de-adf1-bab1f8ccfea2"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5979),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "History"
-                        },
-                        new
-                        {
-                            Id = new Guid("e04e4e4e-4082-499e-939f-6eb13ed297f2"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5985),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Horror"
-                        },
-                        new
-                        {
-                            Id = new Guid("b743f838-4ea7-4522-a015-6657d67a7990"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5991),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Music"
-                        },
-                        new
-                        {
-                            Id = new Guid("ac50915b-23c9-41df-a878-db74bea1aef3"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(5997),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Mystery"
-                        },
-                        new
-                        {
-                            Id = new Guid("09d64147-6677-40ec-b88a-11adbb31b1cd"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6002),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Romance"
-                        },
-                        new
-                        {
-                            Id = new Guid("5ed0e656-8d2a-449c-9171-f55cb5023b59"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6008),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "ScienceFiction"
-                        },
-                        new
-                        {
-                            Id = new Guid("1f2208aa-0467-437d-bd35-81d0a1bdedbe"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6014),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Thriller"
-                        },
-                        new
-                        {
-                            Id = new Guid("b865f631-af82-470a-9bc5-4d205161bb7e"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6020),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "War"
-                        },
-                        new
-                        {
-                            Id = new Guid("8eded9aa-8568-47d8-92dc-21e68e44fd85"),
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6026),
-                            IconId = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            Name = "Western"
-                        });
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Favorite", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("MovieId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MovieId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Favorites");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Movie", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<Guid>("CategoryId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("CoverId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(2500)
-                        .HasColumnType("nvarchar(2500)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .HasColumnType("nvarchar(60)");
-
-                    b.Property<Guid>("TrailerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("VideoId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("CoverId")
-                        .IsUnique();
-
-                    b.HasIndex("TrailerId")
-                        .IsUnique();
-
-                    b.HasIndex("VideoId")
-                        .IsUnique();
-
-                    b.ToTable("Movies");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.UploadedFile", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<string>("ContentType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreateAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FilePath")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
-
-                    b.Property<string>("OriginalFileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UploadedFiles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("7a628b2a-fb48-42d3-9fdc-9ea16bf48e88"),
-                            ContentType = "jpg",
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(4984),
-                            FileName = "ActorImage",
-                            FilePath = "/home/modsyan/projects/",
-                            FileSize = 0L,
-                            OriginalFileName = "23511317.jpg"
-                        },
-                        new
-                        {
-                            Id = new Guid("b07b46ea-af97-4b78-8976-3bd112b5a97f"),
-                            ContentType = "jpg",
-                            CreateAt = new DateTime(2023, 9, 3, 6, 45, 20, 288, DateTimeKind.Local).AddTicks(6086),
-                            FileName = "ActorImage",
-                            FilePath = "/home/modsyan/projects/",
-                            FileSize = 0L,
-                            OriginalFileName = "23511317.jpg"
-                        });
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.User", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -648,35 +55,12 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.ApplicationUser", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("ClaimType")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ClaimValue")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
-
-                    b.ToTable("AspNetRoleClaims", (string)null);
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -685,12 +69,20 @@ namespace LarQ.DataAccess.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("nvarchar(21)");
+
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
+
+                    b.Property<Guid>("FavoriteId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -718,6 +110,9 @@ namespace LarQ.DataAccess.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<Guid>("SubscriptionId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -736,9 +131,592 @@ namespace LarQ.DataAccess.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
+
+                    b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("IconId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IconId");
+
+                    b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("b955176e-33eb-464b-8384-74ef7c6132dd"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(1992),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Action"
+                        },
+                        new
+                        {
+                            Id = new Guid("03e9acfc-962e-4720-a9ac-d55b6bd68d89"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2008),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Adventure"
+                        },
+                        new
+                        {
+                            Id = new Guid("2bb71785-f677-4c45-b00c-bb7a98178c3b"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2017),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Animation"
+                        },
+                        new
+                        {
+                            Id = new Guid("7cc14c76-0096-448b-b831-9216c26d0f92"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2025),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Comedy"
+                        },
+                        new
+                        {
+                            Id = new Guid("6cb324da-7f4e-4f85-a725-01a1f70a0a54"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2033),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Crime"
+                        },
+                        new
+                        {
+                            Id = new Guid("51fa28b6-2248-441a-9417-f84105bce750"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2042),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Documentary"
+                        },
+                        new
+                        {
+                            Id = new Guid("0a45a756-0f4d-4a06-93b6-03171c31d70a"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2051),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Drama"
+                        },
+                        new
+                        {
+                            Id = new Guid("11399beb-cd61-43a0-a309-40948fedc2d7"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2059),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Family"
+                        },
+                        new
+                        {
+                            Id = new Guid("3acff3b1-5ab5-4244-bdb4-bf52cf5cb94f"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2067),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Fantasy"
+                        },
+                        new
+                        {
+                            Id = new Guid("c9b3b33b-0ae4-4874-97a3-e1a3689880e7"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2076),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "History"
+                        },
+                        new
+                        {
+                            Id = new Guid("96232068-c365-4da0-8d66-79e9177236fb"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2083),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Horror"
+                        },
+                        new
+                        {
+                            Id = new Guid("b71e718f-45c6-42ec-9ad5-22629c941e29"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2092),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Music"
+                        },
+                        new
+                        {
+                            Id = new Guid("d14cabee-7142-45a8-b103-259905bc398c"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2099),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Mystery"
+                        },
+                        new
+                        {
+                            Id = new Guid("a8190e1b-8aec-44db-a76d-7ff210c0e789"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2107),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Romance"
+                        },
+                        new
+                        {
+                            Id = new Guid("b005cfd4-9dea-43a8-8b54-d5f46bcb20e5"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2115),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "ScienceFiction"
+                        },
+                        new
+                        {
+                            Id = new Guid("30c71b44-8981-49f8-acf0-46f3552df5d9"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2123),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Thriller"
+                        },
+                        new
+                        {
+                            Id = new Guid("5b4238f5-cea2-4238-9410-5e75bfb5e372"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2131),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "War"
+                        },
+                        new
+                        {
+                            Id = new Guid("1d838d22-8cd8-4b94-86eb-372e73dfc2ab"),
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2140),
+                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Name = "Western"
+                        });
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Comment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(700)
+                        .HasColumnType("nvarchar(700)");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EpisodeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EpisodeId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Episode", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<Guid>("AudioId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(700)
+                        .HasColumnType("nvarchar(700)");
+
+                    b.Property<Guid>("PodcastId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("ReleaseDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<Guid?>("TranscriptId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AudioId");
+
+                    b.HasIndex("PodcastId");
+
+                    b.HasIndex("TranscriptId");
+
+                    b.ToTable("Episodes");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Favorite", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Favorites");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.FavoriteItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("FavoriteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PodcastId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("FavoriteId");
+
+                    b.HasIndex("PodcastId");
+
+                    b.ToTable("FavoriteItems");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Guest", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime>("BornDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EpisodesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Nationality")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("PictureId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EpisodesId");
+
+                    b.HasIndex("PictureId")
+                        .IsUnique();
+
+                    b.ToTable("Guests");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Playlists");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.PlaylistItem", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PlaylistId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PodcastsId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PlaylistId");
+
+                    b.HasIndex("PodcastsId");
+
+                    b.ToTable("PlaylistItems");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Podcast", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<Guid>("CategoryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CoverId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(2500)
+                        .HasColumnType("nvarchar(2500)");
+
+                    b.Property<Guid>("HostId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("CoverId")
+                        .IsUnique();
+
+                    b.HasIndex("HostId");
+
+                    b.ToTable("Podcasts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.React", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("EpisodeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("ReactType")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EpisodeId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Reacts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Subscribe", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("PodcastId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("SubscriptionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PodcastId");
+
+                    b.HasIndex("SubscriptionId");
+
+                    b.ToTable("Subscribes");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Subscription", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Subscriptions");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.UploadedFile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<string>("ContentType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("OriginalFileName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .ValueGeneratedOnUpdate()
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UploadedFiles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            ContentType = "jpg",
+                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(940),
+                            FileName = "GuestImage",
+                            FilePath = "/home/modsyan/projects/",
+                            FileSize = 0L,
+                            OriginalFileName = "23511317.jpg"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -752,9 +730,32 @@ namespace LarQ.DataAccess.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -763,22 +764,19 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetUserClaims", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -787,13 +785,13 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("RoleId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -802,18 +800,16 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -823,30 +819,39 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ActorMovie", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
                 {
-                    b.HasOne("LarQ.Core.Entities.Actor", null)
-                        .WithMany()
-                        .HasForeignKey("ActorsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("LarQ.Core.Entities.ApplicationUser");
 
-                    b.HasOne("LarQ.Core.Entities.Movie", null)
-                        .WithMany()
-                        .HasForeignKey("MoviesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PictureId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("PictureId")
+                        .IsUnique()
+                        .HasFilter("[PictureId] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator().HasValue("Host");
                 });
 
-            modelBuilder.Entity("LarQ.Core.Entities.Actor", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
                 {
-                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Picture")
-                        .WithMany()
-                        .HasForeignKey("PictureId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasBaseType("LarQ.Core.Entities.ApplicationUser");
 
-                    b.Navigation("Picture");
+                    b.ToTable("AspNetUsers");
+
+                    b.HasDiscriminator().HasValue("Owner");
                 });
 
             modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
@@ -854,120 +859,333 @@ namespace LarQ.DataAccess.Migrations
                     b.HasOne("LarQ.Core.Entities.UploadedFile", "Icon")
                         .WithMany()
                         .HasForeignKey("IconId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
                     b.Navigation("Icon");
                 });
 
-            modelBuilder.Entity("LarQ.Core.Entities.Favorite", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.Comment", b =>
                 {
-                    b.HasOne("LarQ.Core.Entities.Movie", "Movie")
+                    b.HasOne("LarQ.Core.Entities.Episode", "Episode")
                         .WithMany()
-                        .HasForeignKey("MovieId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("EpisodeId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("LarQ.Core.Entities.User", "User")
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Movie");
+                    b.Navigation("Episode");
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("LarQ.Core.Entities.Movie", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.Episode", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Audio")
+                        .WithMany()
+                        .HasForeignKey("AudioId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.Podcast", "Podcast")
+                        .WithMany("Episodes")
+                        .HasForeignKey("PodcastId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Transcript")
+                        .WithMany()
+                        .HasForeignKey("TranscriptId")
+                        .OnDelete(DeleteBehavior.ClientCascade);
+
+                    b.Navigation("Audio");
+
+                    b.Navigation("Podcast");
+
+                    b.Navigation("Transcript");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Favorite", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithOne("Favorite")
+                        .HasForeignKey("LarQ.Core.Entities.Favorite", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.FavoriteItem", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Favorite", "Favorite")
+                        .WithMany("Items")
+                        .HasForeignKey("FavoriteId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.Podcast", "Podcast")
+                        .WithMany()
+                        .HasForeignKey("PodcastId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Favorite");
+
+                    b.Navigation("Podcast");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Guest", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Episode", "Episodes")
+                        .WithMany("Guests")
+                        .HasForeignKey("EpisodesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Picture")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.Guest", "PictureId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Episodes");
+
+                    b.Navigation("Picture");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.PlaylistItem", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Playlist", "Playlist")
+                        .WithMany("Items")
+                        .HasForeignKey("PlaylistId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.Podcast", "Podcasts")
+                        .WithMany()
+                        .HasForeignKey("PodcastsId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Playlist");
+
+                    b.Navigation("Podcasts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Podcast", b =>
                 {
                     b.HasOne("LarQ.Core.Entities.Category", "Category")
-                        .WithMany("Movies")
+                        .WithMany("Podcasts")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("LarQ.Core.Entities.UploadedFile", "Cover")
                         .WithOne()
-                        .HasForeignKey("LarQ.Core.Entities.Movie", "CoverId")
+                        .HasForeignKey("LarQ.Core.Entities.Podcast", "CoverId")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
-                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Trailer")
-                        .WithOne()
-                        .HasForeignKey("LarQ.Core.Entities.Movie", "TrailerId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Video")
-                        .WithOne()
-                        .HasForeignKey("LarQ.Core.Entities.Movie", "VideoId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
+                    b.HasOne("LarQ.Core.Entities.Host", "Host")
+                        .WithMany("Podcasts")
+                        .HasForeignKey("HostId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Category");
 
                     b.Navigation("Cover");
 
-                    b.Navigation("Trailer");
-
-                    b.Navigation("Video");
+                    b.Navigation("Host");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+            modelBuilder.Entity("LarQ.Core.Entities.React", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("LarQ.Core.Entities.Episode", "Episode")
+                        .WithMany("Reacts")
+                        .HasForeignKey("EpisodeId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.React", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Episode");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Subscribe", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Podcast", "Podcast")
+                        .WithMany("Subscribes")
+                        .HasForeignKey("PodcastId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.Subscription", "Subscription")
+                        .WithMany("Subscribes")
+                        .HasForeignKey("SubscriptionId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Podcast");
+
+                    b.Navigation("Subscription");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Subscription", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithOne("Subscription")
+                        .HasForeignKey("LarQ.Core.Entities.Subscription", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                    b.HasOne("LarQ.Core.Entities.ApplicationRole", null)
                         .WithMany()
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Owner", "Owner")
+                        .WithMany("Hosts")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Picture")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.Host", "PictureId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+
+                    b.Navigation("Picture");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.ApplicationUser", b =>
+                {
+                    b.Navigation("Favorite")
+                        .IsRequired();
+
+                    b.Navigation("Subscription")
                         .IsRequired();
                 });
 
             modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
                 {
-                    b.Navigation("Movies");
+                    b.Navigation("Podcasts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Episode", b =>
+                {
+                    b.Navigation("Guests");
+
+                    b.Navigation("Reacts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Favorite", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
+                {
+                    b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Podcast", b =>
+                {
+                    b.Navigation("Episodes");
+
+                    b.Navigation("Subscribes");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Subscription", b =>
+                {
+                    b.Navigation("Subscribes");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
+                {
+                    b.Navigation("Podcasts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
+                {
+                    b.Navigation("Hosts");
                 });
 #pragma warning restore 612, 618
         }

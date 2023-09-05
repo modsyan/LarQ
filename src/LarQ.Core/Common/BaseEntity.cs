@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using LarQ.DataAccess.Common;
 
-namespace LarQ.DataAccess.Common;
+namespace LarQ.Core.Common;
 
-public class BaseEntity: IEntity
+public abstract class BaseEntity : IEntity
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
