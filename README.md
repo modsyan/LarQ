@@ -1,4 +1,4 @@
 # LarQ
 
 
-Movie website build with asp.net mvc n-tier application
+Podcast Web Application build with asp.net core mvc
