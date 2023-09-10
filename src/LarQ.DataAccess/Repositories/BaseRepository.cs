@@ -36,12 +36,32 @@ public class BaseRepository<T> : IBaseRepository<T> where T : class
         return await _dbContext.Set<T>().FindAsync(id);
     }
 
-    public async Task<IEnumerable<T>> GetAsync(IList<string>? includes = null)
+    public async Task<IEnumerable<T>> GetAsync(
+        IList<string>? includes = null,
+        int? take = 20,
+        int? skip = 0,
+        Expression<Func<T, object>>? orderBy = null,
+        string orderByDirection = OrderBy.Ascending
+    )
     {
         IQueryable<T> query = _dbContext.Set<T>();
         includes ??= new List<string>();
-        query = includes.Aggregate(query, (currentQueryValue, include) =>
-            currentQueryValue.Include(include));
+        // take = take <= 0 ? throw new ArgumentOutOfRangeException(nameof(take)) : 30;
+        // skip = skip < 0 ? throw new ArgumentOutOfRangeException(nameof(skip)) : 0;
+
+        query = includes.Aggregate(query, (currentQueryValue, include)
+            => currentQueryValue.Include(include));
+
+        if (take.HasValue)
+            query = query.Take((int)take);
+
+        if (skip.HasValue)
+            query = query.Skip((int)skip);
+
+        if (orderBy != null)
+            query = orderByDirection == OrderBy.Ascending
+                ? query.OrderBy(orderBy)
+                : query.OrderByDescending(orderBy);
 
         return await query.ToListAsync();
     }

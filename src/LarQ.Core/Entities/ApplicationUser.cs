@@ -8,6 +8,7 @@ namespace LarQ.Core.Entities;
 
 public class ApplicationUser : IdentityUser<Guid>, IEntity
 {
+    public string Name { get; set; } = string.Empty;
     public Guid FavoriteId { get; set; }
     public Favorite Favorite { get; set; } = default!;
 
@@ -19,6 +20,8 @@ public class ApplicationUserConfiguration : IEntityTypeConfiguration<Application
 {
     public void Configure(EntityTypeBuilder<ApplicationUser> builder)
     {
+        builder.Property(user => user.Name).HasMaxLength(100).IsRequired();
+
         builder.HasOne(user => user.Favorite)
             .WithOne(favorite => favorite.User)
             .HasForeignKey<ApplicationUser>(user => user.FavoriteId)

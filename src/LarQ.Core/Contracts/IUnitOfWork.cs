@@ -5,9 +5,9 @@ namespace LarQ.Core.Contracts;
 
 public interface IUnitOfWork : IDisposable
 {
-    public IBaseRepository<Podcast> Movies { get; }
+    public IBaseRepository<Podcast> Podcasts { get; }
     public IBaseRepository<Category> Categories { get; }
-    public IBaseRepository<Guest> Actors { get; }
+    public IBaseRepository<Guest> Guests { get; }
     public IBaseRepository<UploadedFile> Files { get; set; }
 
     public int Complete();

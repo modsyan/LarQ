@@ -20,7 +20,7 @@ public class MapperProfile : Profile
         //     return await FileUploadExtension.UploadFormFile(,c);
         // });
 
-        CreateMap<CreateUpdatePodcastViewModel, Podcast>()
+        CreateMap<CreateOrUpdatePodcastViewModel, Podcast>()
             .ForMember(p => p.Cover, expression => expression.Ignore());
     }
 }

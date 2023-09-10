@@ -72,6 +72,7 @@ namespace LarQ.DataAccess.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false, defaultValueSql: "NEWSEQUENTIALID()"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     FavoriteId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     SubscriptionId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Discriminator = table.Column<string>(type: "nvarchar(21)", maxLength: 21, nullable: false),
@@ -510,31 +511,31 @@ namespace LarQ.DataAccess.Migrations
             migrationBuilder.InsertData(
                 table: "UploadedFiles",
                 columns: new[] { "Id", "ContentType", "CreateAt", "FileName", "FilePath", "FileSize", "OriginalFileName" },
-                values: new object[] { new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "jpg", new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(940), "GuestImage", "/home/modsyan/projects/", 0L, "23511317.jpg" });
+                values: new object[] { new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "jpg", new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(3376), "GuestImage", "/home/modsyan/projects/", 0L, "23511317.jpg" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
                 columns: new[] { "Id", "CreateAt", "IconId", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("03e9acfc-962e-4720-a9ac-d55b6bd68d89"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2008), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Adventure" },
-                    { new Guid("0a45a756-0f4d-4a06-93b6-03171c31d70a"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2051), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Drama" },
-                    { new Guid("11399beb-cd61-43a0-a309-40948fedc2d7"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2059), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Family" },
-                    { new Guid("1d838d22-8cd8-4b94-86eb-372e73dfc2ab"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2140), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Western" },
-                    { new Guid("2bb71785-f677-4c45-b00c-bb7a98178c3b"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2017), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Animation" },
-                    { new Guid("30c71b44-8981-49f8-acf0-46f3552df5d9"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2123), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Thriller" },
-                    { new Guid("3acff3b1-5ab5-4244-bdb4-bf52cf5cb94f"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2067), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Fantasy" },
-                    { new Guid("51fa28b6-2248-441a-9417-f84105bce750"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2042), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Documentary" },
-                    { new Guid("5b4238f5-cea2-4238-9410-5e75bfb5e372"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2131), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "War" },
-                    { new Guid("6cb324da-7f4e-4f85-a725-01a1f70a0a54"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2033), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Crime" },
-                    { new Guid("7cc14c76-0096-448b-b831-9216c26d0f92"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2025), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Comedy" },
-                    { new Guid("96232068-c365-4da0-8d66-79e9177236fb"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2083), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Horror" },
-                    { new Guid("a8190e1b-8aec-44db-a76d-7ff210c0e789"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2107), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Romance" },
-                    { new Guid("b005cfd4-9dea-43a8-8b54-d5f46bcb20e5"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2115), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "ScienceFiction" },
-                    { new Guid("b71e718f-45c6-42ec-9ad5-22629c941e29"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2092), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Music" },
-                    { new Guid("b955176e-33eb-464b-8384-74ef7c6132dd"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(1992), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Action" },
-                    { new Guid("c9b3b33b-0ae4-4874-97a3-e1a3689880e7"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2076), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "History" },
-                    { new Guid("d14cabee-7142-45a8-b103-259905bc398c"), new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2099), new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"), "Mystery" }
+                    { new Guid("044d9400-4d9f-47ca-83cb-e6d0b1c96b74"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4735), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Family" },
+                    { new Guid("0b1f7ec4-00ab-4432-b846-f18bb2343b4b"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4744), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Fantasy" },
+                    { new Guid("0b23690e-b11b-4e79-b118-ad2a2967cd55"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4763), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Horror" },
+                    { new Guid("0db5f89e-83fd-4a79-954f-556313e8ae65"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4634), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Action" },
+                    { new Guid("385722a9-6205-467b-b3c6-a4b5fdd6fa8d"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4754), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "History" },
+                    { new Guid("66777054-373e-4bbe-8f4f-585465088a83"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4819), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "War" },
+                    { new Guid("a81bf23c-7ca5-46b7-8a61-72446b117b4a"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4687), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Comedy" },
+                    { new Guid("a9ac8df4-f437-4528-92b1-a5769656a46f"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4669), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Adventure" },
+                    { new Guid("aabf1ccc-25a0-405f-903d-3404d9548edd"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4801), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "ScienceFiction" },
+                    { new Guid("aeb7b513-a924-4f9f-9fff-ad2a82ef52e3"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4725), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Drama" },
+                    { new Guid("b5c64858-088b-4700-b8e3-a38978627c76"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4678), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Animation" },
+                    { new Guid("bf25a915-c124-4dbd-a05a-e0dab5390a6b"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4711), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Documentary" },
+                    { new Guid("d63f8af7-73c0-4c9e-bcdc-71e20b6c8a85"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4810), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Thriller" },
+                    { new Guid("db124417-b489-4e74-afb4-0843dc699927"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4828), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Western" },
+                    { new Guid("dd6bb0e3-49cc-4438-a658-21d0008d9ffc"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4792), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Romance" },
+                    { new Guid("e51e4b90-a118-4ca3-8d2b-b5ca048aa858"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4772), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Music" },
+                    { new Guid("eaa04dae-5b8c-45bc-b94b-96b5d7b1e618"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4696), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Crime" },
+                    { new Guid("ef7ac3b6-597a-4617-b0a3-e5456b5dd2ac"), new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4783), new Guid("e0451234-5b85-4443-94ed-a02989514f64"), "Mystery" }
                 });
 
             migrationBuilder.CreateIndex(

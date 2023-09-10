@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LarQ.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230905222156_InitMigration")]
+    [Migration("20230908063959_InitMigration")]
     partial class InitMigration
     {
         /// <inheritdoc />
@@ -93,6 +93,11 @@ namespace LarQ.DataAccess.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -172,128 +177,128 @@ namespace LarQ.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("b955176e-33eb-464b-8384-74ef7c6132dd"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(1992),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("0db5f89e-83fd-4a79-954f-556313e8ae65"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4634),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Action"
                         },
                         new
                         {
-                            Id = new Guid("03e9acfc-962e-4720-a9ac-d55b6bd68d89"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2008),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("a9ac8df4-f437-4528-92b1-a5769656a46f"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4669),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Adventure"
                         },
                         new
                         {
-                            Id = new Guid("2bb71785-f677-4c45-b00c-bb7a98178c3b"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2017),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("b5c64858-088b-4700-b8e3-a38978627c76"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4678),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Animation"
                         },
                         new
                         {
-                            Id = new Guid("7cc14c76-0096-448b-b831-9216c26d0f92"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2025),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("a81bf23c-7ca5-46b7-8a61-72446b117b4a"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4687),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Comedy"
                         },
                         new
                         {
-                            Id = new Guid("6cb324da-7f4e-4f85-a725-01a1f70a0a54"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2033),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("eaa04dae-5b8c-45bc-b94b-96b5d7b1e618"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4696),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Crime"
                         },
                         new
                         {
-                            Id = new Guid("51fa28b6-2248-441a-9417-f84105bce750"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2042),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("bf25a915-c124-4dbd-a05a-e0dab5390a6b"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4711),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Documentary"
                         },
                         new
                         {
-                            Id = new Guid("0a45a756-0f4d-4a06-93b6-03171c31d70a"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2051),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("aeb7b513-a924-4f9f-9fff-ad2a82ef52e3"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4725),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Drama"
                         },
                         new
                         {
-                            Id = new Guid("11399beb-cd61-43a0-a309-40948fedc2d7"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2059),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("044d9400-4d9f-47ca-83cb-e6d0b1c96b74"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4735),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Family"
                         },
                         new
                         {
-                            Id = new Guid("3acff3b1-5ab5-4244-bdb4-bf52cf5cb94f"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2067),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("0b1f7ec4-00ab-4432-b846-f18bb2343b4b"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4744),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Fantasy"
                         },
                         new
                         {
-                            Id = new Guid("c9b3b33b-0ae4-4874-97a3-e1a3689880e7"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2076),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("385722a9-6205-467b-b3c6-a4b5fdd6fa8d"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4754),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "History"
                         },
                         new
                         {
-                            Id = new Guid("96232068-c365-4da0-8d66-79e9177236fb"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2083),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("0b23690e-b11b-4e79-b118-ad2a2967cd55"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4763),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Horror"
                         },
                         new
                         {
-                            Id = new Guid("b71e718f-45c6-42ec-9ad5-22629c941e29"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2092),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("e51e4b90-a118-4ca3-8d2b-b5ca048aa858"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4772),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Music"
                         },
                         new
                         {
-                            Id = new Guid("d14cabee-7142-45a8-b103-259905bc398c"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2099),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("ef7ac3b6-597a-4617-b0a3-e5456b5dd2ac"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4783),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Mystery"
                         },
                         new
                         {
-                            Id = new Guid("a8190e1b-8aec-44db-a76d-7ff210c0e789"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2107),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("dd6bb0e3-49cc-4438-a658-21d0008d9ffc"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4792),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Romance"
                         },
                         new
                         {
-                            Id = new Guid("b005cfd4-9dea-43a8-8b54-d5f46bcb20e5"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2115),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("aabf1ccc-25a0-405f-903d-3404d9548edd"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4801),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "ScienceFiction"
                         },
                         new
                         {
-                            Id = new Guid("30c71b44-8981-49f8-acf0-46f3552df5d9"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2123),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("d63f8af7-73c0-4c9e-bcdc-71e20b6c8a85"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4810),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Thriller"
                         },
                         new
                         {
-                            Id = new Guid("5b4238f5-cea2-4238-9410-5e75bfb5e372"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2131),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("66777054-373e-4bbe-8f4f-585465088a83"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4819),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "War"
                         },
                         new
                         {
-                            Id = new Guid("1d838d22-8cd8-4b94-86eb-372e73dfc2ab"),
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(2140),
-                            IconId = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("db124417-b489-4e74-afb4-0843dc699927"),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4828),
+                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             Name = "Western"
                         });
                 });
@@ -709,9 +714,9 @@ namespace LarQ.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("be875cae-0bd8-45e6-adf4-957f3b14b296"),
+                            Id = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
                             ContentType = "jpg",
-                            CreateAt = new DateTime(2023, 9, 6, 1, 21, 56, 657, DateTimeKind.Local).AddTicks(940),
+                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(3376),
                             FileName = "GuestImage",
                             FilePath = "/home/modsyan/projects/",
                             FileSize = 0L,

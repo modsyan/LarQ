@@ -15,7 +15,7 @@ public class GuestService : IGuestService
 
     public async Task<IEnumerable<SelectListItem>> GetSelectListItems()
     {
-        var actors = await _unitOfWork.Actors.GetAsync();
+        var actors = await _unitOfWork.Guests.GetAsync();
         return actors
             .Select(a => new SelectListItem { Text = a.Name, Value = a.Id.ToString() })
             .OrderBy(a => a.Text)

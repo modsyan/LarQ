@@ -8,7 +8,14 @@ public interface IBaseRepository<T> where T : class
     T? Get(Guid id, IList<string>? includes = null);
     IEnumerable<T> Get(IList<string>? includes = null);
     Task<T?> GetAsync(Guid id, IList<string>? includes = null);
-    Task<IEnumerable<T>> GetAsync(IList<string>? includes = null);
+
+    Task<IEnumerable<T>> GetAsync(
+        IList<string>? includes = null,
+        int? take = 20,
+        int? skip = 0,
+        Expression<Func<T, object>>? orderBy = null,
+        string orderByDirection = OrderBy.Ascending
+    );
 
     T? FindFirst(Expression<Func<T?, bool>> criteria, IList<string>? includes = null);
     T? FindSingle(Expression<Func<T?, bool>> criteria, IList<string>? includes = null);

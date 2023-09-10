@@ -1,4 +1,4 @@
-@model LarQ.ViewModels.CreateUpdatePodcastViewModel
+@model LarQ.ViewModels.CreateOrUpdatePodcastViewModel
 
 @{
     ViewBag.Title = "title";
@@ -8,62 +8,62 @@
 <h2>
     <i class="bi bi-plus-circle-dotted"></i> Add a Podcast
 </h2>
-
-
-<form asp-action="Create" asp-controller="Podcasts" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="form-group">
-                <label asp-for="Name" class="form-label mt-4"></label>
-                <input type="text" class="form-control" asp-for="Name" placeholder="Movie Name">
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="CategoryId" class="form-label mt-4"></label>
-                <select class="form-select" asp-for="CategoryId" asp-items="Model.Categories">
-                    <option></option>
-                </select>
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Description" class="form-label mt-4"></label>
-                <textarea class="form-control" asp-for="Description" placeholder="Movie Description" rows="3"></textarea>
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="SelectedGuests" class="form-label mt-4"></label>
-                <select class="form-select" asp-for="SelectedGuests" asp-items="Model.Guests">
-                    <option></option>
-                </select>
-                <span asp-validation-for="SelectedGuests" class="text-danger"></span>
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Cover" class="form-label mt-3">Cover</label>
-                <input class="form-control" type="file" asp-for="Cover">
-                <span asp-validation-for="Cover" class="text-danger d-block"></span>
-                <small class="form-text text-muted">Only .jpg, .jpeg, .png files are allowed with max size 1MB</small>
-            </div>
-
-            @* <div class="form-group"> *@
-            @*     <label asp-for="Cover" class="form-label mt-3">Trailer</label> *@
-            @*     <input class="form-control" type="file" asp-for="Trailer"> *@
-            @*     <span asp-validation-for="Trailer" class="text-danger d-block"></span> *@
-            @*     <small class="form-text text-muted">Only .mkv, .mp4, .webm files are allowed with max size 500MB</small> *@
-            @* </div> *@
-            @* *@
-            @* <div class="form-group"> *@
-            @*     <label asp-for="Video" class="form-label mt-3">Video</label> *@
-            @*     <input class="form-control" type="file" asp-for="Video"> *@
-            @*     <span asp-validation-for="Video" class="text-danger d-block"></span> *@
-            @*     <small class="form-text text-muted">Only .mkv, .mp4, .webm files are allowed with max size 5GB</small> *@
-            @* </div> *@
-
-            <button type="submit" class="btn btn-dark text-light mt-5">Create</button>
-        </div>
-        <div class="col-md-6"> </div>
-    </div>
-</form>
+@* *@
+@* *@
+@* <form asp-action="Create" asp-controller="Podcasts" enctype="multipart/form-data"> *@
+@*     <div class="row"> *@
+@*         <div class="col-md-6"> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Name" class="form-label mt-4"></label> *@
+@*                 <input type="text" class="form-control" asp-for="Name" placeholder="Movie Name"> *@
+@*                 <span asp-validation-for="Name" class="text-danger"></span> *@
+@*             </div> *@
+@* *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="CategoryId" class="form-label mt-4"></label> *@
+@*                 <select class="form-select" asp-for="CategoryId" asp-items="Model.Categories"> *@
+@*                     <option></option> *@
+@*                 </select> *@
+@*                 <span asp-validation-for="CategoryId" class="text-danger"></span> *@
+@*             </div> *@
+@* *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Description" class="form-label mt-4"></label> *@
+@*                 <textarea class="form-control" asp-for="Description" placeholder="Movie Description" rows="3"></textarea> *@
+@*                 <span asp-validation-for="Name" class="text-danger"></span> *@
+@*             </div> *@
+@* *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="SelectedGuests" class="form-label mt-4"></label> *@
+@*                 <select class="form-select" asp-for="SelectedGuests" asp-items="Model.Guests"> *@
+@*                     <option></option> *@
+@*                 </select> *@
+@*                 <span asp-validation-for="SelectedGuests" class="text-danger"></span> *@
+@*             </div> *@
+@* *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Cover" class="form-label mt-3">Cover</label> *@
+@*                 <input class="form-control" type="file" asp-for="Cover"> *@
+@*                 <span asp-validation-for="Cover" class="text-danger d-block"></span> *@
+@*                 <small class="form-text text-muted">Only .jpg, .jpeg, .png files are allowed with max size 1MB</small> *@
+@*             </div> *@
+@* *@
+@*             $1$ <div class="form-group"> #1# *@
+@*             $1$     <label asp-for="Cover" class="form-label mt-3">Trailer</label> #1# *@
+@*             $1$     <input class="form-control" type="file" asp-for="Trailer"> #1# *@
+@*             $1$     <span asp-validation-for="Trailer" class="text-danger d-block"></span> #1# *@
+@*             $1$     <small class="form-text text-muted">Only .mkv, .mp4, .webm files are allowed with max size 500MB</small> #1# *@
+@*             $1$ </div> #1# *@
+@*             $1$ #1# *@
+@*             $1$ <div class="form-group"> #1# *@
+@*             $1$     <label asp-for="Video" class="form-label mt-3">Video</label> #1# *@
+@*             $1$     <input class="form-control" type="file" asp-for="Video"> #1# *@
+@*             $1$     <span asp-validation-for="Video" class="text-danger d-block"></span> #1# *@
+@*             $1$     <small class="form-text text-muted">Only .mkv, .mp4, .webm files are allowed with max size 5GB</small> #1# *@
+@*             $1$ </div> #1# *@
+@* *@
+@*             <button type="submit" class="btn btn-dark text-light mt-5">Create</button> *@
+@*         </div> *@
+@*         <div class="col-md-6"> </div> *@
+@*     </div> *@
+@* </form> *@

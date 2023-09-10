@@ -14,50 +14,37 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.xyz/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg bg-dark mb-3" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LarQ</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-controller="Podcasts" asp-action="Index">Podcasts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                    </li>
-                </ul>
-                <partial name="_LoginPartial"/>
-            </div>
+
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+
+        <div class="col-3 col-md-3 col-xl-2 px-sm-2 px-0 bg-dark position-sticky">
+            <partial name="_Sidebar"/>
         </div>
-    </nav>
-</header>
 
-@* <ol class="breadcrumb"> *@
-@*   <li class="breadcrumb-item"><a href="#">Home</a></li> *@
-@*   <li class="breadcrumb-item"><a href="#">Library</a></li> *@
-@*   <li class="breadcrumb-item active">Data</li> *@
-@* </ol> *@
+        <div class="col py-3 d-flex flex-column justify-content-between" id="right-side">
 
+            <div>
+                <header>
+                    <partial name="_Header"/>
+                </header>
 
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <footer class="border-top footer text-muted footer p-3 bg-dark-subtle text-white ">
+                <div class="container">
+                    &copy; 2023 - LarQ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+        </div>
+
+    </div>
 </div>
 
-<footer class="border-top footer text-muted footer p-3">
-    <div class="container">
-        &copy; 2023 - LarQ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-    </div>
-</footer>
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

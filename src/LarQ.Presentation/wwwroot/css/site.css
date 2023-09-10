@@ -21,15 +21,19 @@ html {
     min-height: 100%;
 }
 
-body {
-    margin-bottom: 60px;
-    padding-bottom: 400px;
-}
+/*body {*/
+/*    margin-bottom: 60px;*/
+/*    padding-bottom: 400px;*/
+/*}*/
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    white-space: nowrap;
-    line-height: 60px;
-}
+/*footer {*/
+/*    position: absolute;*/
+/*    bottom: 0;*/
+/*    width: 100%;*/
+/*    white-space: nowrap;*/
+/*    line-height: 60px;*/
+/*}*/
+
+/*#right-side {*/
+/*    margin-left: inherit;*/
+/*}*/

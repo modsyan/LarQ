@@ -1,3 +1,4 @@
+using ChustaSoft.Services.StaticData.Configuration;
 using LarQ.Core.Entities;
 using LarQ.DataAccess.Data;
 using Microsoft.AspNetCore.Identity;
@@ -5,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace LarQ.Startup;
 
-public static class ServicesBuilder
+public static class ServiceRegistrar
 {
-    public static IServiceCollection ServiceInitializer(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection ConfigureApplicationServices(this IServiceCollection services,
+        IConfiguration configuration)
     {
         // Add services to the container.
         var connectionString = configuration.GetConnectionString("DefaultConnection") ??
@@ -31,6 +33,10 @@ public static class ServicesBuilder
         services.AddControllersWithViews();
 
         services.DependencyInjectionsInitializer();
+
+        services.RegisterStaticDataServices(configuration);
+
+        services.ConfigureBindingOptions(configuration);
 
         return services;
     }

@@ -37,7 +37,7 @@
     <ItemGroup>
         <Folder Include="Areas\Identity\Pages\Account\" />
         <Folder Include="Pages\" />
-        <Folder Include="wwwroot\assets\"/>
+        <Folder Include="wwwroot\assets\uploads\" />
     </ItemGroup>
 
 <!--    <ItemGroup>-->

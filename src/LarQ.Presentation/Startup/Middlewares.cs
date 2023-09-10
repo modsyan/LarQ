@@ -2,7 +2,7 @@ namespace LarQ.Startup;
 
 public static class Middlewares
 {
-    public static WebApplication ConfigureMiddleware(this WebApplication app)
+    public static WebApplication ConfigureApplicationMiddleware(this WebApplication app)
     {
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -23,13 +23,15 @@ public static class Middlewares
 
         app.UseAuthorization();
 
-        app.ConfigureEndpoints();
+        app.AddEndpoints();
 
         app.MapControllerRoute(
             name: "default",
             pattern: "{controller=Home}/{action=Index}/{id?}");
 
         app.MapRazorPages();
+
+        app.AddEndpoints();
 
         return app;
     }
