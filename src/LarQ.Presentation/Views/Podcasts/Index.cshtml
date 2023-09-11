@@ -1,17 +1,81 @@
-@model dynamic
+@using LarQ.ViewModels
+@model IEnumerable<GetPodcastViewModel>
 
 @{
     ViewBag.Title = "Podcasts";
     Layout = "_Layout";
 }
 
-<h2 class="pb-4">Podcast</h2>
 
+<div class="d-flex justify-content-between px-2 pb-5 align-items-center">
+    <h2 class="">Podcast</h2>
+    <a class="btn btn-primary justify-content-between w-auto" asp-action="Create">
+        <div class="d-flex justify-content-between align-items-center">
+            <i class="bi bi-plus-circle-dotted p-1"></i>
+            <p class="p-1 mb-0">Add Podcast</p>
+        </div>
+    </a>
+</div>
 
-<a class="btn btn-lg btn-primary" asp-action="Create">
-    <i class="bi bi-plus-circle-dotted"></i> Add Podcast
-</a>
+<h5>Refrence Card</h5>
+<div class="row row-cols-auto row-cols-md-auto g-3 d-flex justify-content-center">
+    <div class="col d-flex align-items-center">
+        <div class="card h-100  border-bottom-1 rounded-bottom-0">
+            <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="...">
+            <div class="card-body p-2">
+                <h6 class="card-title text-md-start">Card title</h6>
+                <p class="card-text text-truncate text-sm-start card-host-name mb-0">Ahmed Amer</p>
+            </div>
+        </div>
+    </div>
+</div>
 
-<ul>
-    <li k></li>
-</ul>
+@* <h6>Popular & trending</h6> *@
+@* <div class="row"> *@
+@*     <div class=" d-flex gap-2 overflow-auto"> *@
+@*         @for (var x = 0; x < 30; x++) *@
+@*         { *@
+@*             <div class="d-flex align-items-center col"> *@
+@*                 <div class="card h-100  border-bottom-1 rounded-bottom-0"> *@
+@*                     <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="..."> *@
+@*                     <div class="card-body p-2"> *@
+@*                         <h6 class="card-title text-md-start">Card title</h6> *@
+@*                         <p class="card-text text-truncate text-sm-start card-host-name mb-0">Ahmed Amer</p> *@
+@*                     </div> *@
+@*                 </div> *@
+@*             </div> *@
+@*         } *@
+@*     </div> *@
+@* </div> *@
+
+<h6>Popular & trending</h6>
+
+@* <div class="card-group card-group-scroll gap-2"> *@
+@*          *@
+@*     @for (var x = 0; x < 30; x++) *@
+@*     { *@
+@*         <div class="card h-100 border-bottom-1 rounded-bottom-0"> *@
+@*             <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="..."> *@
+@*             <div class="card-body p-2"> *@
+@*                 <h6 class="card-title text-md-start">Card title</h6> *@
+@*                 <p class="card-text text-truncate text-sm-start card-host-name mb-0">Ahmed Amer</p> *@
+@*             </div> *@
+@*         </div> *@
+@*     } *@
+@*      *@
+@* </div> *@
+
+@* <div class="card-group-scroll"> *@
+@*     <div class="card-group gap-2"> *@
+@*         @for (var x = 0; x < 30; x++) *@
+@*         { *@
+@*             <div class="card h-100 border-bottom-1 rounded-bottom-0"> *@
+@*                 <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="..."> *@
+@*                 <div class="card-body p-2"> *@
+@*                     <h6 class="card-title text-md-start">Card title</h6> *@
+@*                     <p class="card-text text-truncate text-sm-start card-host-name mb-0">Ahmed Amer</p> *@
+@*                 </div> *@
+@*             </div> *@
+@*         } *@
+@*     </div> *@
+@* </div> *@

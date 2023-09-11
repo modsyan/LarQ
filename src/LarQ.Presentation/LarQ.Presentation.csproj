@@ -40,6 +40,10 @@
         <Folder Include="wwwroot\assets\uploads\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Shared\Studio\_StudioSidebar.cshtml" />
+    </ItemGroup>
+
 <!--    <ItemGroup>-->
 <!--      <_ContentIncludedByDefault Remove="Views\Episodes\Index.cshtml" />-->
 <!--    </ItemGroup>-->

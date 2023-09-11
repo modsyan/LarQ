@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LarQ - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/bootstrap.min.css"/>
+    <link rel="icon" href="favico.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/LarQ.styles.css" asp-append-version="true"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.xyz/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+    
+        <aside class="col-3 col-md-3 col-xl-2 px-sm-2 px-0 bg-dark position-sticky">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                    <span class="fs-5 d-none d-sm-inline">
+                        <i class="bi bi-mic"></i>
+                        LARQ PODCASTS
+                    </span>
+                </a>
+
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+
+                    <li class="nav-item">
+                        <a asp-controller="Home" asp-action="Index" class="nav-link align-middle px-0 text-white">
+                            <i class="fs-4 bi bi-house-fill"></i><span class="ms-1 d-none d-sm-inline">Home</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                            <i class="fs-4 bi bi-people-fill"></i><span class="ms-1 d-none d-sm-inline">Employees</span>
+                        </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a asp-controller="" asp-action="" class="nav-link px-0 text-white"> List all</a>
+                            </li>
+                            <li>
+                                <a asp-controller="" asp-action="" class="nav-link px-0 text-white"> Add employee </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle text-white">
+                            <i class="fs-4 bi bi-building-fill-gear"></i><span class="ms-1 d-none d-sm-inline">Department</span>
+                        </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a asp-controller="" asp-action="" class="nav-link px-0 text-white"> List all</a>
+                            </li>
+                            <li>
+                                <a asp-controller="" asp-action="" class="nav-link px-0 text-white"> Add Department </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr>
+            </div>
+        </aside>
+
+        <div class="col py-3 d-flex flex-column justify-content-between" id="right-side">
+
+            <div>
+                <header>
+                    <nav class="navbar navbar-expand-lg bg-dark mb-3" data-bs-theme="dark">
+                        <div class="container-fluid">
+                            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LarQ</a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                                <ul class="navbar-nav flex-grow-1">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Podcasts" asp-action="Index">Podcasts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link text-light" asp-area="" asp-controller="Studio" asp-action="Index">Studio</a>
+                                    </li>
+                                </ul>
+                                <partial name="_LoginPartial"/>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+
+            <footer class="border-top footer text-muted footer p-3 bg-dark-subtle text-white ">
+                <div class="container">
+                    &copy; 2023 - LarQ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </div>
+            </footer>
+            
+        </div>
+    </div>
+</div>
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

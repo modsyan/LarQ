@@ -3,6 +3,7 @@ using LarQ.Core.Entities;
 using LarQ.DataAccess.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace LarQ.Startup;
 
@@ -21,12 +22,7 @@ public static class ServiceRegistrar
 
         services.AddDatabaseDeveloperPageExceptionFilter();
 
-        // services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        //     .AddEntityFrameworkStores<ApplicationDbContext>();
-
-        services.AddIdentity<ApplicationUser, ApplicationRole>(options => options.SignIn.RequireConfirmedAccount = true)
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultUI().AddDefaultTokenProviders();
+        services.AddIdentityConfiguration();
 
         services.AddAutoMapper(typeof(Program).Assembly);
 
