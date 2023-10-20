@@ -1,5 +1,5 @@
 using System.Collections;
-using LarQ.DataAccess.Common;
+using LarQ.Core.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

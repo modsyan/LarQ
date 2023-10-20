@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ChustaSoft.Services.StaticData.Models;
+using LarQ.Core.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -30,9 +31,7 @@ public class GetPodcastViewModel
 
     public string HostName { get; set; } = default!;
 
-    public Guid CoverId { get; set; }
-
-    public IFormFile Cover { get; set; } = default!;
+    public UploadedFile Cover { get; set; } = default!;
 
     public Guid CategoryId { get; set; }
 

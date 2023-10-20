@@ -13,9 +13,9 @@ public class GuestService : IGuestService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<IEnumerable<SelectListItem>> GetSelectListItems()
+    public async Task<IEnumerable<SelectListItem>> GetSelectListItems(CancellationToken cancellationToken)
     {
-        var actors = await _unitOfWork.Guests.GetAsync();
+        var actors = await _unitOfWork.Guests.GetAsync(cancellationToken);
         return actors
             .Select(a => new SelectListItem { Text = a.Name, Value = a.Id.ToString() })
             .OrderBy(a => a.Text)

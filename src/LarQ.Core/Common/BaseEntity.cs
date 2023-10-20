@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using LarQ.DataAccess.Common;
 
 namespace LarQ.Core.Common;
 

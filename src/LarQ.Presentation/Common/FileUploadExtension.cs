@@ -21,27 +21,23 @@ public class FileUploadExtension : IFileUploadExtension
     {
         if (file.Length == 0) throw new Exception("cover is empty");
 
-        var uploadsFolder = $"{_webHostEnvironment.WebRootPath}{_fileOptions.Value.WwwRootImagePath}";
-
         var fileId = Guid.NewGuid();
         var genFileName = $"{fileId}{Path.GetExtension(file.FileName)}";
-        var filePath = Path.Combine(uploadsFolder, genFileName);
+        
+        var wwwFilePath = Path.Combine(_fileOptions.Value.WwwRootImagePath, genFileName);
+        var fullFilePath = $"{_webHostEnvironment.WebRootPath}{wwwFilePath}";
+        
+        await using var stream = File.Create(fullFilePath);
+        await file.CopyToAsync(stream);
 
-        var uploadedFile = new UploadedFile
+        return  new UploadedFile
         {
             Id = fileId,
             FileName = genFileName,
             OriginalFileName = file.FileName,
-            FilePath = filePath,
+            FilePath = wwwFilePath[1..],
             ContentType = file.ContentType,
-        };
-
-        // await using var stream = File.Create(filePath);
-        await using var stream = File.Create(filePath);
-        await file.CopyToAsync(stream);
-        // await stream.DisposeAsync();
-
-        return uploadedFile;
+        };;
     }
 
     public async Task<byte[]> DownloadFormFile(UploadedFile file)

@@ -15,28 +15,28 @@ public class CategoryService : BaseService<ICategoryService>, ICategoryService
     {
     }
 
-    public async Task<Category> Get(Guid categoryId)
+    public async Task<Category> Get(Guid categoryId, CancellationToken cancellationToken)
     {
-        return await UnitOfWork.Categories.FindSingleAsync(c => c.Id == categoryId);
+        return await UnitOfWork.Categories.FindSingleAsync(c => c.Id == categoryId, cancellationToken);
     }
 
-    public async Task<IEnumerable<Category>> GetAll()
+    public async Task<IEnumerable<Category>> GetAll(CancellationToken cancellationToken)
     {
-        return await UnitOfWork.Categories.GetAsync();
+        return await UnitOfWork.Categories.GetAsync(cancellationToken);
     }
 
-    public async Task<IEnumerable<SelectListItem>> GetSelectedItems()
+    public async Task<IEnumerable<SelectListItem>> GetSelectedItems(CancellationToken cancellationToken)
     {
-        var categories = await UnitOfWork.Categories.GetAsync();
+        var categories = await UnitOfWork.Categories.GetAsync(cancellationToken);
         return categories
             .Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
             .OrderBy(c => c.Text)
             .ToList();
     }
 
-    public async Task<Category> Create(Category category)
+    public async Task<Category> Create(Category category, CancellationToken cancellationToken)
     {
-        var newCategory = await UnitOfWork.Categories.CreateAsync(category);
+        var newCategory = await UnitOfWork.Categories.CreateAsync(category, cancellationToken);
         await UnitOfWork.CompleteAsync();
         return newCategory;
     }

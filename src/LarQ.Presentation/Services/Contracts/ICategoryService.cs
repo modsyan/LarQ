@@ -6,10 +6,10 @@ namespace LarQ.Services.Contracts;
 
 public interface ICategoryService
 {
-    public Task<Category> Get(Guid categoryId);
-    public Task<IEnumerable<Category>> GetAll();
-    public Task<IEnumerable<SelectListItem>> GetSelectedItems();
-    public Task<Category> Create(Category category);
+    public Task<Category> Get(Guid categoryId, CancellationToken cancellationToken);
+    public Task<IEnumerable<Category>> GetAll(CancellationToken cancellationToken);
+    public Task<IEnumerable<SelectListItem>> GetSelectedItems(CancellationToken cancellationToken);
+    public Task<Category> Create(Category category, CancellationToken cancellationToken);
     public Task<Category> Update(Category category);
     public Task Remove(Guid categoryId);
 }

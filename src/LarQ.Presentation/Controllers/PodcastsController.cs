@@ -4,6 +4,7 @@ using ChustaSoft.Services.StaticData.Services;
 using LarQ.Services;
 using LarQ.Services.Contracts;
 using LarQ.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -27,16 +28,17 @@ public class PodcastsController : Controller
         _podcastService = podcastService;
     }
 
-    public IActionResult Index(int page = 0, int size = 20)
+    public async Task<IActionResult> Index(CancellationToken cancellationToken, int page = 0, int size = 20)
     {
-        var podcasts = _podcastService.GetAll(page, size);
-        
-        return View();
+        var podcasts = await _podcastService.GetAll(cancellationToken, page, size);
+
+        return View(podcasts);
     }
 
 
     [HttpGet]
-    public async Task<IActionResult> Create()
+    [Authorize]
+    public async Task<IActionResult> Create(CancellationToken cancellationToken)
     {
         var viewModel = new CreateOrUpdatePodcastViewModel
         {
@@ -48,14 +50,14 @@ public class PodcastsController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(CreateOrUpdatePodcastViewModel model)
+    public async Task<IActionResult> Create(CreateOrUpdatePodcastViewModel model, CancellationToken cancellationToken)
     {
         if (!ModelState.IsValid)
         {
             return View(model);
         }
 
-        await _podcastService.Create(model);
+        await _podcastService.Create(model, cancellationToken);
 
         return RedirectToAction(nameof(Index));
     }

@@ -1,13 +1,12 @@
 using System.Security.Claims;
 using AutoMapper;
-using LarQ.Common;
+using LarQ.Core.Entities;
 using LarQ.Common.Contracts;
 using LarQ.Core.Contracts;
-using LarQ.Core.Entities;
-using LarQ.DataAccess.Repositories;
 using LarQ.Services.Base;
 using LarQ.Services.Contracts;
 using LarQ.ViewModels;
+using Host = LarQ.Core.Entities.Host;
 
 namespace LarQ.Services;
 
@@ -24,33 +23,42 @@ public class PodcastService : BaseService<IPodcastService>, IPodcastService
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public async Task<IEnumerable<GetPodcastViewModel>> GetAll(int page = 0, int size = 20)
+    public async Task<IEnumerable<GetPodcastViewModel>> GetAll(CancellationToken cancellationToken, int page = 0,
+        int size = 20)
     {
-        var podcasts =
-            await UnitOfWork.Podcasts.GetAsync(new List<string> { "Host", "Episodes", "Subscribes" }, size, page);
+        // var podcasts =
+        //     await UnitOfWork.Podcasts.GetAsync(includes: new List<string> { "Host", "Episodes", "Subscribes" }, size, page);
 
-        return podcasts.Select(podcast => new GetPodcastViewModel
-        {
-            Id = podcast.Id,
-            Name = podcast.Name,
-            Description = podcast.Description,
-            HostId = podcast.HostId,
-            HostName = podcast.Host.Name,
-            CategoryId = podcast.CategoryId,
-            CategoryName = podcast.Category.Name,
-            CoverId = podcast.Cover.Id,
-            // Cover = 
-            Episodes = podcast.Episodes.Count,
-            Subscribes = podcast.Subscribes.Count,
-        });
+        var podcasts = await UnitOfWork.Podcasts.GetAsync(
+            cancellationToken,
+            includes: new List<string> { nameof(Podcast.Cover), nameof(Podcast.Host), nameof(Podcast.Category) },
+            take: size,
+            skip: page);
+
+        var podcastViewModels = podcasts.Select(podcast =>
+            new GetPodcastViewModel
+            {
+                Id = podcast.Id,
+                Name = podcast.Name,
+                Description = podcast.Description,
+                HostId = podcast.HostId,
+                HostName = podcast.Host.User.Name,
+                CategoryId = podcast.CategoryId,
+                // CategoryName = podcast.Category.Name,
+                Cover = podcast.Cover,
+                // Episodes = podcast.Episodes.Count,
+                // Subscribes = podcast.Subscribes.Count,
+            });
+
+        return podcastViewModels;
     }
 
-    public async Task<GetPodcastDetailViewModel> Get(Guid podcastId)
+    public async Task<GetPodcastDetailViewModel> Get(Guid podcastId, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
 
-    public async Task Create(CreateOrUpdatePodcastViewModel model)
+    public async Task Create(CreateOrUpdatePodcastViewModel model, CancellationToken cancellationToken)
     {
         // var coverName = $"{Guid.NewGuid()}{Path.GetExtension(model.Cover.FileName)}";
         // var path = Path.Combine(_imagesPath, coverName);
@@ -64,27 +72,29 @@ public class PodcastService : BaseService<IPodcastService>, IPodcastService
         var userId = Guid.Parse(((ClaimsIdentity)_httpContextAccessor.HttpContext.User.Identity)
             .FindFirst(ClaimTypes.NameIdentifier).Value);
 
+        // if (userId == Guid.Empty) return View.;
+
         var cover = await _fileUploadExtension.UploadFormFile(model.Cover);
 
         var podcast = new Podcast
         {
             Name = model.Name,
             Description = model.Description,
-            HostId = userId,
+            Host = new Host() { UserId = userId, },
             Cover = cover,
             CategoryId = model.CategoryId,
         };
 
-        await UnitOfWork.Podcasts.CreateAsync(podcast);
+        await UnitOfWork.Podcasts.CreateAsync(podcast, cancellationToken);
         await UnitOfWork.CompleteAsync();
     }
 
-    public async Task Update(CreateOrUpdatePodcastViewModel model)
+    public async Task Update(CreateOrUpdatePodcastViewModel model, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }
 
-    public async Task<GetPodcastDetailViewModel> Remove(Guid podcastId)
+    public async Task<GetPodcastDetailViewModel> Remove(Guid podcastId, CancellationToken cancellationToken)
     {
         throw new NotImplementedException();
     }

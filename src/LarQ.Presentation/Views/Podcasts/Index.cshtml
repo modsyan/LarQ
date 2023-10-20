@@ -17,18 +17,31 @@
     </a>
 </div>
 
-<h5>Refrence Card</h5>
-<div class="row row-cols-auto row-cols-md-auto g-3 d-flex justify-content-center">
-    <div class="col d-flex align-items-center">
-        <div class="card h-100  border-bottom-1 rounded-bottom-0">
-            <img src="https://picsum.photos/1000/1000" class="card-img-top" alt="...">
-            <div class="card-body p-2">
-                <h6 class="card-title text-md-start">Card title</h6>
-                <p class="card-text text-truncate text-sm-start card-host-name mb-0">Ahmed Amer</p>
+@if (Model.Any())
+{
+    <h5>Reference Card</h5>
+    <div class="row row-cols-auto row-cols-md-auto d-flex justify-content-start">
+        @* <div class="col d-flex align-items-center g-3"> *@
+        @* <div class="row row-cols-auto"> *@
+        @* <div class="col d-flex align-items-start g-3"> *@
+
+
+        @foreach (var item in Model)
+        {
+            
+            <div class="col d-flex align-items-center g-3">
+                <div class="card h-100  border-bottom-1 rounded-bottom-0 pm-3 " style="width: 8rem">
+                    <img src="@item.Cover.FilePath" class="card-img-top img-thumbnail" alt="...">
+                    <div class="card-body p-2">
+                        <h6 class="card-title text-md-start">@item.Name</h6>
+                        <p class="card-text text-truncate text-sm-start card-host-name mb-0">@item.HostName</p>
+                    </div>
+                </div>
             </div>
-        </div>
+        }
+
     </div>
-</div>
+}
 
 @* <h6>Popular & trending</h6> *@
 @* <div class="row"> *@

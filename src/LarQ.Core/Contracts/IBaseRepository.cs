@@ -10,6 +10,7 @@ public interface IBaseRepository<T> where T : class
     Task<T?> GetAsync(Guid id, IList<string>? includes = null);
 
     Task<IEnumerable<T>> GetAsync(
+        CancellationToken cancellationToken,
         IList<string>? includes = null,
         int? take = 20,
         int? skip = 0,
@@ -18,9 +19,14 @@ public interface IBaseRepository<T> where T : class
     );
 
     T? FindFirst(Expression<Func<T?, bool>> criteria, IList<string>? includes = null);
+
     T? FindSingle(Expression<Func<T?, bool>> criteria, IList<string>? includes = null);
-    Task<T> FindSingleAsync(Expression<Func<T, bool>> criteria, IList<string>? includes = null);
-    Task<T?> FindFirstAsync(Expression<Func<T?, bool>> criteria, IList<string>? includes = null);
+
+    Task<T> FindSingleAsync(Expression<Func<T, bool>> criteria, CancellationToken cancellationToken,
+        IList<string>? includes = null);
+
+    Task<T?> FindFirstAsync(Expression<Func<T?, bool>> criteria, CancellationToken cancellationToken,
+        IList<string>? includes = null);
 
     IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, IList<string>? includes = null);
     IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, int? take, int? skip);
@@ -28,18 +34,22 @@ public interface IBaseRepository<T> where T : class
     IEnumerable<T> FindAll(Expression<Func<T, bool>> criteria, int? take, int? skip,
         Expression<Func<T, object>>? orderBy, string orderByDirection = OrderBy.Ascending);
 
-    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, IList<string>? includes = null);
-    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, int? take, int? skip);
+    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, CancellationToken cancellationToken,
+        IList<string>? includes = null);
 
-    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, int? take, int? skip,
+    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, CancellationToken cancellationToken,
+        int? take, int? skip);
+
+    Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, CancellationToken cancellationToken,
+        int? take, int? skip,
         Expression<Func<T, object>>? orderBy, string orderByDirection = OrderBy.Ascending);
 
 
     T Create(T entity);
     void CreateRange(IEnumerable<T> entities);
 
-    Task<T> CreateAsync(T entity);
-    void CreateRangeAsync(IEnumerable<T> entities);
+    Task<T> CreateAsync(T entity, CancellationToken cancellationToken);
+    void CreateRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken);
 
     T Update(T entity);
     void UpdateRange(IEnumerable<T> entity);
@@ -59,6 +69,6 @@ public interface IBaseRepository<T> where T : class
     int Count();
     int Count(Expression<Func<T, bool>> criteria);
 
-    Task<int> CountAsync();
-    Task<int> CountAsync(Expression<Func<T, bool>> criteria);
+    Task<int> CountAsync(CancellationToken cancellationToken);
+    Task<int> CountAsync(Expression<Func<T, bool>> criteria, CancellationToken cancellationToken);
 }

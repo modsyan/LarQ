@@ -1,10 +1,15 @@
+using LarQ.Core.Common;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace LarQ.Core.Entities;
 
-public class Host : ApplicationUser
+public class Host : BaseEntity
 {
+    public Guid UserId { get; set; }
+
+    public ApplicationUser User { get; set; } = default!;
+
     public string Bio { get; set; } = string.Empty;
 
     public Guid PictureId { get; set; }
@@ -22,6 +27,9 @@ public class HostConfiguration : IEntityTypeConfiguration<Host>
 {
     public void Configure(EntityTypeBuilder<Host> builder)
     {
+        builder.HasOne(u => u.User).WithOne()
+            .IsRequired().IsRequired().OnDelete(DeleteBehavior.Restrict);
+        
         builder.Property(host => host.Bio)
             .HasMaxLength(500)
             .IsRequired();

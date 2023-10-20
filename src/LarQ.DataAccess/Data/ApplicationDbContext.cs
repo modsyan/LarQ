@@ -1,6 +1,6 @@
-﻿using LarQ.Core.Entities;
+﻿using LarQ.Core.Common;
+using LarQ.Core.Entities;
 using LarQ.Core.Seeds;
-using LarQ.DataAccess.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -29,6 +29,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
         modelBuilder.AddPluraizingTableNameConvention();
 
         modelBuilder.AddCategorySeed();
+        
+        modelBuilder.AddUserApplicationSeeder();
+        
         // modelBuilder.AddGuestSeeder();
     }
 

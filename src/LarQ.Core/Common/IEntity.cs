@@ -1,4 +1,4 @@
-namespace LarQ.DataAccess.Common;
+namespace LarQ.Core.Common;
 
 public interface IEntity
 {

@@ -1,4 +1,4 @@
-using LarQ.DataAccess.Common;
+using LarQ.Core.Common;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

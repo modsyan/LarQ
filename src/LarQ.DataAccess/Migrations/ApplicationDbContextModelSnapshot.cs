@@ -69,11 +69,6 @@ namespace LarQ.DataAccess.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasMaxLength(21)
-                        .HasColumnType("nvarchar(21)");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -137,9 +132,61 @@ namespace LarQ.DataAccess.Migrations
 
                     b.ToTable("AspNetUsers", (string)null);
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("ApplicationUser");
-
-                    b.UseTphMappingStrategy();
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("0224e690-3760-4304-9e00-7bf9aa53da1c"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "770f8493-5cea-405f-a86d-3a9ad356b3ab",
+                            Email = "me@admin.com",
+                            EmailConfirmed = true,
+                            FavoriteId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            LockoutEnabled = false,
+                            Name = "Admin",
+                            NormalizedEmail = "ME@ADMIN.COM",
+                            NormalizedUserName = "ME@ADMIN.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ0WUGjWLkXmaVyV0EnSrWRDet25PXRkSEnVU86myV7I9TX0yTNXGnzF/k526PbUvw==",
+                            PhoneNumberConfirmed = false,
+                            SubscriptionId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            TwoFactorEnabled = false,
+                            UserName = "me@admin.com"
+                        },
+                        new
+                        {
+                            Id = new Guid("4e803c56-02f4-44b6-bc20-4a20df7d9698"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2b25269a-3064-4d47-bdab-ac8d9eaa0260",
+                            Email = "me@owner.com",
+                            EmailConfirmed = true,
+                            FavoriteId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            LockoutEnabled = false,
+                            Name = "Owner",
+                            NormalizedEmail = "ME@OWNER.COM",
+                            NormalizedUserName = "ME@OWNER.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKQUUeY73uwRgGGOnEkek6GZrlYAr3+x4et65iROJrlqpnMwmOJjsj3t8E2EZS13fQ==",
+                            PhoneNumberConfirmed = false,
+                            SubscriptionId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            TwoFactorEnabled = false,
+                            UserName = "me@owner.com"
+                        },
+                        new
+                        {
+                            Id = new Guid("5c058293-f259-4407-8c2c-a27742e53769"),
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "593fdaab-94f5-425f-9231-65bcb99ab278",
+                            Email = "twice@owner.com",
+                            EmailConfirmed = true,
+                            FavoriteId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            LockoutEnabled = false,
+                            Name = "Twice",
+                            NormalizedEmail = "TWICE@OWNER.COM",
+                            NormalizedUserName = "TWICe@OWNER.COM",
+                            PasswordHash = "AQAAAAIAAYagAAAAENo3J7Rp5kaTLfCYGEANGCVl2Ttn+6UwZloP6atg5nj3mW67AxGJiM1hYJTUsyewiA==",
+                            PhoneNumberConfirmed = false,
+                            SubscriptionId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            TwoFactorEnabled = false,
+                            UserName = "twice@owner.com"
+                        });
                 });
 
             modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
@@ -174,128 +221,128 @@ namespace LarQ.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("0db5f89e-83fd-4a79-954f-556313e8ae65"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4634),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("f1b96a7b-8603-497e-a119-24dfd971fc13"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5724),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Action"
                         },
                         new
                         {
-                            Id = new Guid("a9ac8df4-f437-4528-92b1-a5769656a46f"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4669),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("491ac550-eb74-4700-8a41-0b867566abf9"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5736),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Adventure"
                         },
                         new
                         {
-                            Id = new Guid("b5c64858-088b-4700-b8e3-a38978627c76"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4678),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("b21efb42-b546-4a6d-b101-07c96a6ed8b1"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5741),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Animation"
                         },
                         new
                         {
-                            Id = new Guid("a81bf23c-7ca5-46b7-8a61-72446b117b4a"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4687),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("192929bf-54d8-48a0-a6af-22a4fb9b83b6"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5746),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Comedy"
                         },
                         new
                         {
-                            Id = new Guid("eaa04dae-5b8c-45bc-b94b-96b5d7b1e618"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4696),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("5f109560-b718-4645-a3e3-fcffe05f6bd6"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5752),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Crime"
                         },
                         new
                         {
-                            Id = new Guid("bf25a915-c124-4dbd-a05a-e0dab5390a6b"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4711),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("efe5f17c-7c07-4044-856d-330d17a67c03"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5758),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Documentary"
                         },
                         new
                         {
-                            Id = new Guid("aeb7b513-a924-4f9f-9fff-ad2a82ef52e3"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4725),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("a6371e38-0011-4874-8c10-ecf32e05827d"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5763),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Drama"
                         },
                         new
                         {
-                            Id = new Guid("044d9400-4d9f-47ca-83cb-e6d0b1c96b74"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4735),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("472b87a8-1591-41a7-af4a-256dc850cdf5"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5768),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Family"
                         },
                         new
                         {
-                            Id = new Guid("0b1f7ec4-00ab-4432-b846-f18bb2343b4b"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4744),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("f78ea7f3-f350-49ff-8c51-2299b99f45c8"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5773),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Fantasy"
                         },
                         new
                         {
-                            Id = new Guid("385722a9-6205-467b-b3c6-a4b5fdd6fa8d"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4754),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("02278eb6-ba51-47cc-bee0-19bf10f1a4f6"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5779),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "History"
                         },
                         new
                         {
-                            Id = new Guid("0b23690e-b11b-4e79-b118-ad2a2967cd55"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4763),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("35be6686-0dcb-47f2-93a6-b25e73b2d625"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5784),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Horror"
                         },
                         new
                         {
-                            Id = new Guid("e51e4b90-a118-4ca3-8d2b-b5ca048aa858"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4772),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("28f2efd4-1fb0-4ffa-bac4-c7650458319e"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5789),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Music"
                         },
                         new
                         {
-                            Id = new Guid("ef7ac3b6-597a-4617-b0a3-e5456b5dd2ac"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4783),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("2e56062d-9385-4d14-9ddb-4b54631a9e37"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5794),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Mystery"
                         },
                         new
                         {
-                            Id = new Guid("dd6bb0e3-49cc-4438-a658-21d0008d9ffc"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4792),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("0ab8e44e-3b98-4d74-a6c0-3cabc5761fa7"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5799),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Romance"
                         },
                         new
                         {
-                            Id = new Guid("aabf1ccc-25a0-405f-903d-3404d9548edd"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4801),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("9a52f097-a77b-4957-9cd4-2f9aec8d3274"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5803),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "ScienceFiction"
                         },
                         new
                         {
-                            Id = new Guid("d63f8af7-73c0-4c9e-bcdc-71e20b6c8a85"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4810),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("a827ea3e-6ed4-42cf-91a0-a5fd151c0315"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5808),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Thriller"
                         },
                         new
                         {
-                            Id = new Guid("66777054-373e-4bbe-8f4f-585465088a83"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4819),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("0a3c9e29-9db0-492d-9991-a284ff8e0593"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5813),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "War"
                         },
                         new
                         {
-                            Id = new Guid("db124417-b489-4e74-afb4-0843dc699927"),
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(4828),
-                            IconId = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("48a0b837-b0a6-49d9-81fa-fa451060d48c"),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5819),
+                            IconId = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             Name = "Western"
                         });
                 });
@@ -473,6 +520,64 @@ namespace LarQ.DataAccess.Migrations
                         .IsUnique();
 
                     b.ToTable("Guests");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<string>("Bio")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("CreateAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("OwnerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PictureId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OwnerId");
+
+                    b.HasIndex("PictureId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Hosts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier")
+                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("Owners");
                 });
 
             modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
@@ -711,9 +816,9 @@ namespace LarQ.DataAccess.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("e0451234-5b85-4443-94ed-a02989514f64"),
+                            Id = new Guid("3a30f028-12b6-4187-84de-df5ac5d838be"),
                             ContentType = "jpg",
-                            CreateAt = new DateTime(2023, 9, 8, 9, 39, 59, 430, DateTimeKind.Local).AddTicks(3376),
+                            CreateAt = new DateTime(2023, 10, 17, 15, 58, 46, 951, DateTimeKind.Local).AddTicks(5273),
                             FileName = "GuestImage",
                             FilePath = "/home/modsyan/projects/",
                             FileSize = 0L,
@@ -824,41 +929,6 @@ namespace LarQ.DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
-                {
-                    b.HasBaseType("LarQ.Core.Entities.ApplicationUser");
-
-                    b.Property<string>("Bio")
-                        .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<Guid>("OwnerId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("PictureId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasIndex("OwnerId");
-
-                    b.HasIndex("PictureId")
-                        .IsUnique()
-                        .HasFilter("[PictureId] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator().HasValue("Host");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
-                {
-                    b.HasBaseType("LarQ.Core.Entities.ApplicationUser");
-
-                    b.ToTable("AspNetUsers");
-
-                    b.HasDiscriminator().HasValue("Owner");
-                });
-
             modelBuilder.Entity("LarQ.Core.Entities.Category", b =>
                 {
                     b.HasOne("LarQ.Core.Entities.UploadedFile", "Icon")
@@ -962,6 +1032,44 @@ namespace LarQ.DataAccess.Migrations
                     b.Navigation("Episodes");
 
                     b.Navigation("Picture");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.Owner", "Owner")
+                        .WithMany("Hosts")
+                        .HasForeignKey("OwnerId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Picture")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.Host", "PictureId")
+                        .OnDelete(DeleteBehavior.ClientCascade)
+                        .IsRequired();
+
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.Host", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Owner");
+
+                    b.Navigation("Picture");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
+                {
+                    b.HasOne("LarQ.Core.Entities.ApplicationUser", "User")
+                        .WithOne()
+                        .HasForeignKey("LarQ.Core.Entities.Owner", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
@@ -1121,25 +1229,6 @@ namespace LarQ.DataAccess.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
-                {
-                    b.HasOne("LarQ.Core.Entities.Owner", "Owner")
-                        .WithMany("Hosts")
-                        .HasForeignKey("OwnerId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.HasOne("LarQ.Core.Entities.UploadedFile", "Picture")
-                        .WithOne()
-                        .HasForeignKey("LarQ.Core.Entities.Host", "PictureId")
-                        .OnDelete(DeleteBehavior.ClientCascade)
-                        .IsRequired();
-
-                    b.Navigation("Owner");
-
-                    b.Navigation("Picture");
-                });
-
             modelBuilder.Entity("LarQ.Core.Entities.ApplicationUser", b =>
                 {
                     b.Navigation("Favorite")
@@ -1166,6 +1255,16 @@ namespace LarQ.DataAccess.Migrations
                     b.Navigation("Items");
                 });
 
+            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
+                {
+                    b.Navigation("Podcasts");
+                });
+
+            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
+                {
+                    b.Navigation("Hosts");
+                });
+
             modelBuilder.Entity("LarQ.Core.Entities.Playlist", b =>
                 {
                     b.Navigation("Items");
@@ -1181,16 +1280,6 @@ namespace LarQ.DataAccess.Migrations
             modelBuilder.Entity("LarQ.Core.Entities.Subscription", b =>
                 {
                     b.Navigation("Subscribes");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Host", b =>
-                {
-                    b.Navigation("Podcasts");
-                });
-
-            modelBuilder.Entity("LarQ.Core.Entities.Owner", b =>
-                {
-                    b.Navigation("Hosts");
                 });
 #pragma warning restore 612, 618
         }
